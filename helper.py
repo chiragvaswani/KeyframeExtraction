@@ -132,4 +132,9 @@ def getKeyframes(path):
   return keyframes
 
 
+def showKeyframes(keyframes):
+    for img in keyframes:
+        cv2.imshow(img)
+     
+
 

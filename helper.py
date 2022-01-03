@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 import cv2
 from scipy.sparse import csc_matrix
-from scipy.sparse.linalg import svds, eigs
-
+from scipy.sparse.linalg import svds, eigs  
+    
 def getKeyframes(path):
   # Cell 1
 
@@ -124,10 +124,12 @@ def getKeyframes(path):
 
   # Cell 13
   new1 = new.index
-
-  # Cell 14
+  keyframes = []
   for c in new1:
-    frame_rgb1 = cv2.cvtColor(D[c], cv2.COLOR_RGB2BGR) #since cv consider image in BGR order
-    frame_num_chr = str(c)
-    file_name = 'frame'+ frame_num_chr +'.png'
-    cv2.imwrite(file_name, frame_rgb1)
+    keyframes.append(D[c])
+  # return D, new1
+  keyframes = np.array(keyframes)
+  return keyframes
+
+
+
